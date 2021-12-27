@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, width=device-width">
 		<title>Game</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -9,26 +10,19 @@
 		<link rel="stylesheet" href="./style.css">
 	</head>	
 	<body>
-		
-    		<section class="section">
-
-			<h1 class="section_title">Выберите уровень сложности:</h1>
-
+			<section class="section">
+			<h1 class="section__title">Выберите уровень сложности:</h1>
 			<p class="section__description">Выберите сложность и игра начнется. Чем выше уровень - тем больше будет выборка карт.</p>
-
-			<div class="section__level" id="section-level">
+			<div class="section__level" id="section__level">
 				<p class="section__level-level">Простой</p>
 				<p class="section__level-level">Средний</p>
 				<p class="section__level-level">Сложный</p>
 			</div>
-
 			<a class="section__start-game" id="section__start-game" href="#">Начать игру</a>
-
-			<div class="section__kard">
-				<img class="section-kard__one" src="image/kard.png" alt="">
-				<img class="section-kard__two" src="image/kard.png" alt="">
+			<div class="section__card">
+				<img class="section-card__one" src="image/card.png" alt="">
+				<img class="section-card__two" src="image/card.png" alt="">
 			</div>
-
 		</section>
 		<section class="section-game"></section>
 		<script src="script.js"></script>

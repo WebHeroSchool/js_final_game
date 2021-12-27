@@ -1,86 +1,205 @@
 body {
-	background-image: url(./image/background_image.png);
-	background-repeat: no-repeat;
-	margin: 0;
-	padding: 0;
-}
-
-.section {
-	color: #FFF;
-	width: 86%;
-	margin: 129px auto 0 auto;
+  margin: 0;
+  background: no-repeat url('image/background.png');
+  background-size: cover;
 }
 
 .section-game {
-	display: none;
+  display: none;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 100vh;
 }
 
-.section_title {
-	font: bold 57px/67px Roboto, sans-serif;
-	margin-bottom: 9px;
+.normal {
+  width: 100%;
+  flex-direction: column;
+}
+
+.hard {
+  width: 70%;
+  flex-direction: column;
+}
+
+.section {
+  width: 86%;
+  height: 100vh;
+  margin: 129px auto 0 auto;
+  margin-top: 9%;
+  color: #fff;
+
+}
+
+.section__title {
+  font: bold 57px/67px 'Roboto', arial, helvetica, sans-serif;
+  margin-bottom: .8%;
+  letter-spacing: -2px;
 }
 
 .section__description {
-	margin: 0 0 56px 0;
-	font: normal 19px/22px Roboto, sans-serif;
+  font: normal 19px/22px 'Roboto', arial, helvetica, sans-serif;
+  margin: 0 0 4.8% .3%;
+  letter-spacing: 0.18px;
 }
 
 .section__level {
-	font: bold 50px/59px Roboto, sans-serif;
+  margin-left: 4%;
+  font: bold 50px/59px 'Roboto', arial, helvetica, sans-serif;
 }
 
 .section__level-level {
-	margin: 0 0 2% 4%;
-	color: ;
-	cursor: pointer;
-	position: ;
+  margin: 0 0 2% 0;
+  cursor: pointer;
+  position: relative;
 }
 
 .section__level-level:last-child {
-	margin-bottom: 116px;
+  margin-bottom: 12%;
 }
 
 .section__level-level:hover {
-	content: '';
-	color: #d62b2e;
+  content: '';
+  color: #d62b2e;
 }
 
-.rhomb:after {
-	width: 18px;
-	height: 18px;
-	content: '';
-	background: #d62b2e;
-	position: absolute;
-	top: ;
-	left: 35px;
-	transform: rotate(45deg);
+.rhomb::after {
+  width: 18px;
+  height: 18px;
+  content: '';
+  background: #d62b2e;
+  position: absolute;
+  top: calc(50% - 9px);
+  left: -45px;
+  transform: rotate(45deg);
 }
 
 .section__start-game {
-	color: #FFF;
-	background: #D62B2E;
-	padding: 28px 85px;
-	border-radius: 7px;
-	text-decoration: none;
-	display: inline-block;
-	font: bold 32px/37px Roboto, sans-serif;
+  text-decoration: none;
+  font: bold 32px/37px 'Roboto', arial, helvetica, sans-serif;
+  color: #fff;
+  padding: 29px 83px;
+  background-color: #d62b2e;
+  border-radius: 7px;
 }
 
-.section__kard {
+.section__card {
 	left: 63.5%;
-	bottom: 188px;
+	bottom: 162px;
 	position: relative;
 	width: 500px;
 }
 
-.section-kard__one {
+.section-card__one {
 	transform: rotate(12deg);
 }
 
-.section-kard__two {
+.section-card__two {
 	transform: rotate(39deg);
-	z-index: 5;
 	top: 20px;
-	right: 46px;
+	right: 45px;
 	position: relative;
+}
+
+.throw-card {
+  width: 218px;
+  height: 341px;
+  margin: 14px 13px 12px 11px;
+  perspective: 1000px;
+}
+
+.throw-card:hover {
+  transform: translateY(-20px) rotateZ(0deg);
+}
+
+.card-inside {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  position: absolute;
+  background: no-repeat url('image/cardback.png');
+  background-size: cover;
+}
+
+.card-back {
+  position: absolute;
+  background: no-repeat url('image/cardover.png');
+  background-size: cover;
+  transform: rotateY(180deg);
+}
+
+.card-bug {
+  position: absolute;
+  background: no-repeat url('image/cardbug.png');
+  background-size: cover;
+  transform: rotateY(180deg);
+}
+
+.rotate {
+  transform: rotateY(180deg);
+}
+
+@media (max-width: 1440px) {
+
+  .throw-card {
+    width: 218px;
+    width: calc(88px + (218 - 88) * ((100vw - 768px) / (1439 - 768)));
+    height: 341px;
+    height: calc(135px + (341 - 135) * ((100vw - 768px) / (1439 - 768)));
+  }
+  
+  .hard {
+    width: 87%;
+    flex-direction: row;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .section {
+    text-align: center;
+  }
+
+  .section__title {
+    font-size: 35px;
+    line-height: 37px;
+    margin-bottom: 4%;
+  }
+
+  .section__level {
+    font-size: 36px;
+  }
+
+  .section__start-game {
+    padding: 17px 56px;
+    font-size: 23px;
+  }
+
+  .section__card {
+    display: none;
+  }
+
+  .hard {
+    width: 77%;
+    flex-direction: ;
+  }
+
+
+
 }
