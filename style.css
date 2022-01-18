@@ -14,14 +14,15 @@ body {
   height: 100vh;
 }
 
+.easy,
 .normal {
-  width: 100%;
-  flex-direction: column;
+  max-width: 700px;
+  grid-template-columns: repeat(3,1fr);
 }
 
 .hard {
-  width: 70%;
-  flex-direction: column;
+  max-width: 1200px;
+  grid-template-columns: repeat(5,1fr);
 }
 
 .section {
@@ -30,7 +31,6 @@ body {
   margin: 129px auto 0 auto;
   margin-top: 9%;
   color: #fff;
-
 }
 
 .section__title {
@@ -54,6 +54,7 @@ body {
   margin: 0 0 2% 0;
   cursor: pointer;
   position: relative;
+  letter-spacing: -1px;
 }
 
 .section__level-level:last-child {
@@ -127,7 +128,6 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -155,25 +155,19 @@ body {
   transform: rotateY(180deg);
 }
 
-@media (max-width: 1440px) {
-
+@media (max-width: 738px) {
   .throw-card {
     width: 218px;
-    width: calc(88px + (218 - 88) * ((100vw - 768px) / (1439 - 768)));
+    width: calc(100px + (218 - 100) * ((100vw - 375px) / (737 - 375)));
     height: 341px;
-    height: calc(135px + (341 - 135) * ((100vw - 768px) / (1439 - 768)));
+    height: calc(156px + (341 - 156) * ((100vw - 375px) / (737 - 375)));
   }
-  
-  .hard {
-    width: 87%;
-    flex-direction: row;
-  }
-
 }
 
 @media (max-width: 767px) {
   .section {
     text-align: center;
+    margin-top: 8%;
   }
 
   .section__title {
@@ -184,8 +178,22 @@ body {
 
   .section__level {
     font-size: 36px;
+    margin-left: 0;
   }
-
+  
+  .section__level-level {
+    margin-bottom: 0;
+  }
+  
+  .section__level-level:last-child {
+    margin-bottom: 8%;
+  }
+  
+  .rhomb::after {
+    left: 218px;
+    left: calc(45px + (218 - 45) * ((100vw - 375px) / (766 - 375)));
+  }
+  
   .section__start-game {
     padding: 17px 56px;
     font-size: 23px;
@@ -194,12 +202,13 @@ body {
   .section__card {
     display: none;
   }
+}
 
-  .hard {
-    width: 77%;
-    flex-direction: ;
+@media (max-width: 1216px) {
+    .hard > .throw-card {
+    width: 218px;
+    width: calc(91px + (218 - 91) * ((100vw - 566px) / (1216 - 566)));
+    height: 341px;
+    height: calc(142px + (341 - 142) * ((100vw - 566px) / (1216 - 566)));
   }
-
-
-
 }

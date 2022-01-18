@@ -1,8 +1,7 @@
-﻿const button = document.getElementById("section__start-game");
+const button = document.getElementById("section__start-game");
 const level = document.getElementById("section__level");
 const game = document.querySelector(".section-game");
 
-// выбор уровня
 let difficulty = document.querySelectorAll(".section__level-level");
 difficulty.forEach(level => {
   level.addEventListener("click", () => {
@@ -11,7 +10,6 @@ difficulty.forEach(level => {
   });
 })
 
-// убрать карты
 function removeCards() {
   document.querySelector(".section").style.display = "block";
   game.style.display = "none";
@@ -19,7 +17,6 @@ function removeCards() {
   game.className = "section-game";
 }
 
-// показать карты
 function showCard(number) {
   for (let i=0; i<number; i++) {
     let card = document.createElement ("div");
@@ -39,18 +36,18 @@ function showCard(number) {
     cardBack.className = "card-back";
     cardInside.appendChild(cardBack);
 
+    let number = Math.round(Math.random());
+    if (number === 1) cardBack.classList.add("card-bug");
+      
     let rotate = () => {
-      let number = Math.round(Math.random());
       cardInside.classList.toggle("rotate");
-      if (number === 1) cardBack.classList.add("card-bug");
       let cards = document.querySelectorAll(".throw-card");
       cards.forEach(card => card.addEventListener("click", removeCards));
-      };
-      card.addEventListener("click", rotate);
+    };
+    card.addEventListener("click", rotate);
   }
 }
 
-// простой, средний, сложный уровни
 function chooseDifficulty(level) {
 	if (level === "Простой") {
 		showCard(3);
@@ -65,12 +62,11 @@ function chooseDifficulty(level) {
 
 }
 
-// старт игры
 function startGame() {
   let level = document.querySelector(".rhomb").innerText;
   chooseDifficulty(level);
   document.querySelector(".section").style.display = "none";
-  game.style.display = "flex";
+  game.style.display = "grid";
 }
 
 button.addEventListener("click", startGame);
