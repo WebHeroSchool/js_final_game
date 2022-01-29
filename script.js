@@ -36,9 +36,14 @@ function showCard(number) {
     cardBack.className = "card-back";
     cardInside.appendChild(cardBack);
 
-    let number = Math.round(Math.random());
-    if (number === 1) cardBack.classList.add("card-bug");
-      
+    function randomNumber () {
+      let j = Math.floor(Math.random() * number);
+      if (j === i) {
+        cardBack.classList.add("card-bug");
+      }
+    }  
+    randomNumber();
+    
     let rotate = () => {
       cardInside.classList.toggle("rotate");
       let cards = document.querySelectorAll(".throw-card");
