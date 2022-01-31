@@ -29,6 +29,7 @@ body {
   width: 86%;
   margin: 9% auto 0 auto;
   color: #fff;
+  height: 100vh;
 }
 
 .section__title {
