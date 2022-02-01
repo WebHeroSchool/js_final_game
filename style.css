@@ -1,0 +1,226 @@
+body {
+  margin: 0;
+  background: no-repeat url('image/background.png');
+  background-size: cover;
+}
+
+.section-game {
+  display: none;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 100vh;
+}
+
+.easy,
+.normal {
+  max-width: 700px;
+  grid-template-columns: repeat(3,1fr);
+}
+
+.hard {
+  max-width: 1200px;
+  grid-template-columns: repeat(5,1fr);
+}
+
+.section {
+  width: 86%;
+  margin: 9% auto 0 auto;
+  color: #fff;
+  height: 100vh;
+}
+
+.section__title {
+  font: bold 57px/67px 'Roboto', arial, helvetica, sans-serif;
+  margin-bottom: .8%;
+}
+
+.section__description {
+  font: normal 19px/22px 'Roboto', arial, helvetica, sans-serif;
+  margin: 0 0 4.8% .3%;
+  letter-spacing: 0.18px;
+}
+
+.section__level {
+  margin-left: 4%;
+  font: bold 50px/59px 'Roboto', arial, helvetica, sans-serif;
+}
+
+.section__level-level {
+  margin: 0 0 2% 0;
+  cursor: pointer;
+  position: relative;
+  letter-spacing: -1px;
+}
+
+.section__level-level:last-child {
+  margin-bottom: 12%;
+}
+
+.section__level-level:hover {
+  content: '';
+  color: #d62b2e;
+}
+
+.rhomb::after {
+  width: 18px;
+  height: 18px;
+  content: '';
+  background: #d62b2e;
+  position: absolute;
+  top: calc(50% - 9px);
+  left: -45px;
+  transform: rotate(45deg);
+}
+
+.section__start-game {
+  text-decoration: none;
+  font: bold 32px/37px 'Roboto', arial, helvetica, sans-serif;
+  color: #fff;
+  padding: 29px 83px;
+  background-color: #d62b2e;
+  border-radius: 7px;
+}
+
+.section__card {
+	left: 63.5%;
+	bottom: 162px;
+	position: relative;
+	width: 500px;
+}
+
+.section-card__one {
+	transform: rotate(12deg);
+}
+
+.section-card__two {
+	transform: rotate(39deg);
+	top: 20px;
+	right: 45px;
+	position: relative;
+}
+
+.throw-card {
+  width: 218px;
+  height: 341px;
+  margin: 14px 13px 12px 11px;
+  perspective: 1000px;
+}
+
+.throw-card:hover {
+  transform: translateY(-20px) rotateZ(0deg);
+  filter: drop-shadow(10px 14px 5px rgba(0, 0, 0, 0.25)) 
+}
+
+.card-inside {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  position: absolute;
+  background: no-repeat url('image/cardback.png');
+  background-size: cover;
+}
+
+.card-back {
+  position: absolute;
+  background: no-repeat url('image/cardover.png');
+  background-size: cover;
+  transform: rotateY(180deg);
+}
+
+.card-bug {
+  position: absolute;
+  background: no-repeat url('image/cardbug.png');
+  background-size: cover;
+  transform: rotateY(180deg);
+}
+
+.rotate {
+  transform: rotateY(180deg);
+}
+
+@media (max-width: 1216px) {
+    .hard > .throw-card {
+    width: 218px;
+    width: calc(112px + (218 - 112) * ((100vw - 566px) / (1216 - 566)));
+    height: 341px;
+    height: calc(182px + (341 - 182) * ((100vw - 566px) / (1216 - 566)));
+    align-self: center;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    text-align: center;
+    margin-top: 8%;
+  }
+
+  .section__title {
+    font-size: 35px;
+    line-height: 37px;
+    margin-bottom: 4%;
+  }
+
+  .section__level {
+    font-size: 36px;
+    margin-left: 0;
+  }
+  
+  .section__level-level {
+    margin-bottom: 0;
+  }
+  
+  .section__level-level:last-child {
+    margin-bottom: 8%;
+  }
+  
+  .rhomb::after {
+    left: 218px;
+    left: calc(45px + (218 - 45) * ((100vw - 375px) / (766 - 375)));
+  }
+  
+  .section__start-game {
+    padding: 17px 56px;
+    font-size: 23px;
+  }
+
+  .section__card {
+    display: none;
+  }
+  
+  .hard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .hard > .throw-card {
+    width: 112px;
+    width: calc(66px + (112 - 66) * ((100vw - 320px) / (767 - 320)));
+    height: 182px;
+    height: calc(103px + (182 - 103) * ((100vw - 320px) / (767 - 320)));
+  }
+}
+
+@media (max-width: 738px) {
+  .throw-card {
+    width: 218px;
+    width: calc(100px + (218 - 100) * ((100vw - 375px) / (737 - 375)));
+    height: 341px;
+    height: calc(156px + (341 - 156) * ((100vw - 375px) / (737 - 375)));
+  }
+}
