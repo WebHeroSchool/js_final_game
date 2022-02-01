@@ -42,7 +42,15 @@ function showCard(number) {
         cardBack.classList.add("card-bug");
       }
     }  
-    randomNumber();
+    //randomNumber();
+    
+    const random = (min, max) => {
+      let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      if (randomNumber === i) {
+        cardBack.classList.add("card-bug");
+      }
+    }
+    random(0, number);
     
     let rotate = () => {
       cardInside.classList.toggle("rotate");
